@@ -19,7 +19,6 @@
     "leaflet"
   ],
   "scripts": {
-    "postinstall": "gobble build -f dist",
     "watch": "gobble watch -f dist"
   },
   "bugs": {
