@@ -1,6 +1,6 @@
-import L from 'leaflet';
+var L = require('leaflet');
 
-const IconPulse = L.DivIcon.extend({
+var IconPulse = L.DivIcon.extend({
 
     options: {
         className: '',
@@ -58,17 +58,22 @@ const IconPulse = L.DivIcon.extend({
     }
 });
 
-export function iconPulse(options) {
+function iconPulse(options) {
     return new IconPulse(options);
 };
 
-const MarkerPulse = L.Marker.extend({
+var MarkerPulse = L.Marker.extend({
     initialize: function(latlng, options) {
         options.icon = iconPulse(options);
         L.Marker.prototype.initialize.call(this, latlng, options);
     }
 });
 
-export function markerPulse(latlng, options) {
+function markerPulse(latlng, options) {
     return new MarkerPulse(latlng, options);
+};
+
+module.exports = {
+    iconPulse: iconPulse,
+    markerPulse: markerPulse
 };
